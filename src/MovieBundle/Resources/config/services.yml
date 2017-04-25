@@ -1,0 +1,7 @@
+services:
+    movie.rating_manager:
+        class: MovieBundle\Component\RatingManager
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+            - "@jms_serializer"
+            - "@validator"
