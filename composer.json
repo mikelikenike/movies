@@ -24,6 +24,7 @@
         "friendsofsymfony/user-bundle": "v2.0.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "^1.4",
+        "nelmio/api-doc-bundle": "^2.13",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/assetic-bundle": "~2.3",

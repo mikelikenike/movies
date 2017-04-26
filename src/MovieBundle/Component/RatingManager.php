@@ -59,6 +59,15 @@ class RatingManager
 
     /**
      * @param Movie $movie
+     * @return mixed
+     */
+    public function findAverageRatingByMovie(Movie $movie)
+    {
+        return $this->repository->findAverageRatingByMovie($movie);
+    }
+
+    /**
+     * @param Movie $movie
      * @param User $user
      * @return Rating|null
      */

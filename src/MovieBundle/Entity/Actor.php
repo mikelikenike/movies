@@ -5,11 +5,12 @@ namespace MovieBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMSSerializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Actor
  *
- * @ORM\Table(name="actor", indexes={@ORM\Index(name="name_index", columns={"first_name", "last_name"})})
+ * @ORM\Table(name="actor")
  * @ORM\Entity(repositoryClass="MovieBundle\Repository\ActorRepository")
  * @JMSSerializer\ExclusionPolicy("all")
  */
@@ -29,7 +30,8 @@ class Actor
      *
      * @ORM\Column(name="first_name", type="string", length=255)
      * @JMSSerializer\Expose()
-     * @JMSSerializer\Groups({"api"})
+     * @JMSSerializer\Groups({"movie"})
+     * @Assert\NotNull()
      */
     protected $firstName;
 
@@ -38,7 +40,8 @@ class Actor
      *
      * @ORM\Column(name="last_name", type="string", length=255)
      * @JMSSerializer\Expose()
-     * @JMSSerializer\Groups({"api"})
+     * @JMSSerializer\Groups({"movie"})
+     * @Assert\NotNull()
      */
     protected $lastName;
 

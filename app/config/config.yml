@@ -83,3 +83,6 @@ fos_rest:
             json: true
             xml: true
     format_listener: true
+
+# Nelmio Api Doc
+nelmio_api_doc: ~

@@ -5,6 +5,7 @@ namespace MovieBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMSSerializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Movie
@@ -29,7 +30,8 @@ class Movie
      *
      * @ORM\Column(name="title", type="string", length=255)
      * @JMSSerializer\Expose()
-     * @JMSSerializer\Groups({"api"})
+     * @JMSSerializer\Groups({"actor", "movie"})
+     * @Assert\NotNull()
      */
     protected $title;
 
@@ -38,7 +40,8 @@ class Movie
      *
      * @ORM\Column(name="year", type="smallint")
      * @JMSSerializer\Expose()
-     * @JMSSerializer\Groups({"api"})
+     * @JMSSerializer\Groups({"actor", "movie"})
+     * @Assert\NotNull()
      */
     protected $year;
 
@@ -48,7 +51,7 @@ class Movie
      * @ORM\ManyToMany(targetEntity="MovieBundle\Entity\Actor", inversedBy="movies")
      * @ORM\JoinTable(name="movie_actors")
      * @JMSSerializer\Expose()
-     * @JMSSerializer\Groups({"api"})
+     * @JMSSerializer\Groups({"movie"})
      * @JMSSerializer\MaxDepth(2)
      */
     protected $actors;

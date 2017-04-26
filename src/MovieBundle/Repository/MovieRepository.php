@@ -3,6 +3,7 @@
 namespace MovieBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use MovieBundle\Entity\Actor;
 
 /**
  * MovieRepository
@@ -12,4 +13,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class MovieRepository extends EntityRepository
 {
+    /**
+     * @param Actor $actor
+     * @return array
+     */
+    public function findMoviesByActor(Actor $actor)
+    {
+        $queryBuilder = $this->createQueryBuilder('movie');
+        $queryBuilder->addSelect('actor')
+            ->join('movie.actors', 'actor')
+            ->where('actor = :actor')
+            ->setParameter('actor', $actor);
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

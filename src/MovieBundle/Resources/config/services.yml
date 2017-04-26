@@ -1,4 +1,9 @@
 services:
+    movie.movie_manager:
+        class: MovieBundle\Component\MovieManager
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+
     movie.rating_manager:
         class: MovieBundle\Component\RatingManager
         arguments:
